@@ -1,0 +1,19 @@
+End User License Agreement (EULA) — HabitQuest
+
+1. Grant of License. Ren Kai Studios grants you a non-transferable, non-exclusive license to use HabitQuest on one (1) device per purchase.
+
+2. Ownership. HabitQuest is licensed, not sold. All rights, title, and interest remain with Ren Kai Studios.
+
+3. Restrictions. You may not: (a) resell, sublicense, or redistribute the software; (b) reverse engineer, decompile, or disassemble except as permitted by law; (c) remove or modify proprietary notices.
+
+4. Updates. Ren Kai Studios may provide updates at its discretion. This EULA applies to updates unless a different license is provided.
+
+5. Warranty Disclaimer. HabitQuest is provided “as is” without warranties of any kind.
+
+6. Limitation of Liability. To the maximum extent permitted by law, Ren Kai Studios shall not be liable for any indirect, incidental, or consequential damages.
+
+7. Termination. This license terminates upon breach of this EULA. Upon termination you must destroy all copies.
+
+8. Governing Law. This EULA is governed by the laws of the Philippines.
+
+© 2025 Ren Kai Studios. All rights reserved.
