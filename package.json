@@ -5,15 +5,38 @@
   "main": "electron/main.js",
   "author": "RenKaiStudios",
   "license": "MIT",
- "scripts": {
-  "dev": "electron .",
+  "scripts": {
+    "dev": "electron .",
     "pack:win": "electron-packager . \"HabitQuest\" --platform=win32 --arch=x64 --out=dist --overwrite --icon=assets/icon.ico --asar --app-version=3.0.0 --build-version=3.0.0.0",
     "pack:mac": "electron-packager . \"HabitQuest\" --platform=darwin --arch=x64 --out=dist --overwrite --icon=assets/icon.icns --asar --app-bundle-id=com.RenKaiStudios.habitquest --app-version=3.0.0 --build-version=3000",
-    "pack:linux": "electron-packager . \"HabitQuest\" --platform=linux --arch=x64 --out=dist --overwrite --icon=assets/icon.png --asar --app-version=3.0.0 --build-version=3.0.0"
-},
-
+    "pack:linux": "electron-packager . \"HabitQuest\" --platform=linux --arch=x64 --out=dist --overwrite --icon=assets/icon.png --asar --app-version=3.0.0 --build-version=3.0.0",
+    "dist": "electron-builder -m"
+  },
+  "build": {
+    "appId": "com.renkaistudio.habitquest",
+    "productName": "HabitQuest",
+    "files": [
+      "electron/**",
+      "app/**",
+      "assets/**",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": ["dmg"],
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "dmg": {
+      "sign": false
+    }
+  },
   "devDependencies": {
+    "@electron/notarize": "^3.0.2",
     "electron": "^31.0.0",
+    "electron-builder": "^26.0.12",
     "electron-packager": "^17.1.1"
   }
 }

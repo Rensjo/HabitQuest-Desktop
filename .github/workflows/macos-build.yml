@@ -1,0 +1,55 @@
+name: macOS .app & .dmg
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*' # build on version tags
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout desktop
+        uses: actions/checkout@v4
+
+      - name: Checkout web (sibling repo)
+        uses: actions/checkout@v4
+        with:
+          repository: Rensjo/HabitQuest-web
+          path: web
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install (web)
+        working-directory: ./web
+        run: npm ci
+
+      - name: Build (web)
+        working-directory: ./web
+        run: npm run build
+
+      # Copy the built web app into ./app to match electron/main.js and builder "files"
+      - name: Copy web build into desktop
+        run: |
+          mkdir -p ./app
+          cp -R ./web/dist/* ./app/
+
+      - name: Install (desktop)
+        run: npm ci
+
+      - name: Build desktop (unsigned .dmg)
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"  # no signing on CI for this job
+        run: npm exec electron-builder -- -m
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: habitquest-mac-artifacts
+          path: dist/mac/*
