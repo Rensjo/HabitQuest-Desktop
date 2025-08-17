@@ -57,3 +57,5 @@ coverage/
 *.bak
 *.tmp
 *.cache
+
+!package-lock.json
