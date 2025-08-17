@@ -28,7 +28,7 @@ jobs:
 
       - name: Install (web)
         working-directory: ./web
-        run: npm ci
+        run: npm install
 
       - name: Build (web)
         working-directory: ./web
@@ -41,7 +41,7 @@ jobs:
           cp -R ./web/dist/* ./app/
 
       - name: Install (desktop)
-        run: npm ci
+        run: npm install
 
       - name: Build desktop (unsigned .dmg)
         env:
