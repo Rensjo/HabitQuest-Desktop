@@ -50,6 +50,18 @@ jobs:
           GH_TOKEN: "noop"
         run: npx electron-builder -m -p never
 
+      - name: Show dist tree
+        run: ls -laR dist || true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: habitquest-mac-artifacts
+          path: |
+            dist/*.dmg
+            dist/*.zip
+            dist/mac*/**/*
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
