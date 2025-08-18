@@ -15,7 +15,6 @@
   "build": {
     "appId": "com.renkaistudio.habitquest",
     "productName": "HabitQuest",
-    "publish": "never",
     "files": [
       "electron/**",
       "app/**",
