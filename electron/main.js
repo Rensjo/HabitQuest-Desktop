@@ -10,6 +10,11 @@ function createWindow () {
       ? path.join(__dirname, '..', 'assets', 'icon.icns')
       : path.join(__dirname, '..', 'assets', 'icon.png');
 
+  // On macOS, set dock icon explicitly
+  if (process.platform === 'darwin') {
+    try { app.dock.setIcon(iconPath); } catch (_) {}
+  }
+
   const win = new BrowserWindow({
     width: 1280,
     height: 840,

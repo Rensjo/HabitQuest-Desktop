@@ -46,6 +46,8 @@ jobs:
       - name: Build desktop (unsigned .dmg)
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
+          ELECTRON_BUILDER_DISABLE_PUBLISHING: "true"  # hard-disable publishing
+          GH_TOKEN: "noop"
         run: npx electron-builder -m -p never
 
       - name: Upload artifact

@@ -24,11 +24,18 @@
     ],
     "asar": true,
     "mac": {
+      "icon": "assets/icon.icns",
       "category": "public.app-category.productivity",
       "target": ["dmg"],
       "hardenedRuntime": true,
       "entitlements": "build/entitlements.mac.plist",
       "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "icon": "assets/icon.ico"                
+    },
+    "linux": {
+      "icon": "assets/icon.png"                 
     },
     "dmg": {
       "sign": false
